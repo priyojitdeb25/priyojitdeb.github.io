@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Priyojit Deb · Cloud Specialist | Dark Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0f14;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.5;
+      color: #e8edf2;
+      padding: 2rem 1rem;
+    }
+
+    /* main card with dark gradient */
+    .resume {
+      max-width: 1050px;
+      margin: 0 auto;
+      background: #0f151c;
+      border-radius: 32px;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(66, 153, 225, 0.1);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    /* header area with sleek dark design */
+    .header {
+      background: linear-gradient(135deg, #0b1120 0%, #0a1118 100%);
+      padding: 2rem 2rem 1.6rem 2rem;
+      border-bottom: 1px solid #1e2a3a;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 2rem;
+      right: 2rem;
+      height: 2px;
+      background: linear-gradient(90deg, #2b6a9f, #4f9bcf, #2b6a9f);
+      border-radius: 2px;
+    }
+
+    .name {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(120deg, #ffffff, #9bc0e0);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #7f9fbf;
+      border-left: 3px solid #2e7eb0;
+      padding-left: 0.85rem;
+      margin-top: 0.25rem;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.3rem;
+      font-size: 0.85rem;
+      color: #9bb4cc;
+      border-top: 1px solid #1f2a36;
+      padding-top: 1rem;
+    }
+
+    .contact-bar span, .contact-bar a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #bdd4ec;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-weight: 400;
+    }
+
+    .contact-bar a:hover {
+      color: #6ab0e6;
+      text-shadow: 0 0 4px rgba(106, 176, 230, 0.3);
+    }
+
+    /* 2-col layout */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 2.2fr;
+      gap: 0;
+    }
+
+    /* left sidebar dark subtle */
+    .sidebar {
+      background: #0c1118;
+      padding: 1.8rem 1.6rem;
+      border-right: 1px solid #1a232e;
+    }
+
+    .right-col {
+      padding: 1.8rem 2rem 2rem 2rem;
+      background: #0f151c;
+    }
+
+    /* section titles with neon touch */
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #5f9fd0;
+      margin-bottom: 1.1rem;
+      border-bottom: 1px solid #253341;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .education-item {
+      margin-bottom: 1.3rem;
+    }
+
+    .edu-degree {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #d6e6f5;
+    }
+
+    .edu-school {
+      font-weight: 500;
+      font-size: 0.82rem;
+      color: #89a9cc;
+      margin: 0.2rem 0 0.2rem;
+    }
+
+    .edu-date {
+      font-size: 0.7rem;
+      color: #5f7f9e;
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-gpa {
+      font-size: 0.75rem;
+      background: #14212e;
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      margin-top: 0.25rem;
+      color: #b8d0e8;
+      font-weight: 500;
+    }
+
+    /* skill tags with glow */
+    .skill-tag {
+      display: inline-block;
+      background: #13212e;
+      color: #bdd8f0;
+      font-size: 0.74rem;
+      font-weight: 500;
+      padding: 0.3rem 0.85rem;
+      border-radius: 24px;
+      margin: 0.25rem 0.2rem;
+      transition: all 0.2s;
+      border: 1px solid #253c50;
+    }
+
+    .skill-tag:hover {
+      background: #1d3346;
+      border-color: #3d7dad;
+      color: white;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* projects */
+    .project-item {
+      margin-bottom: 1.3rem;
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #cae3fc;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-desc {
+      font-size: 0.8rem;
+      color: #b0c6dd;
+      line-height: 1.45;
+    }
+
+    /* experience cards */
+    .job {
+      margin-bottom: 1.9rem;
+      background: #0d131b;
+      padding: 1rem 1rem 1rem 1.2rem;
+      border-radius: 18px;
+      transition: all 0.2s;
+      border: 1px solid #18222e;
+    }
+
+    .job:hover {
+      border-color: #2c5577;
+      background: #0f1721;
+    }
+
+    .job-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.35rem;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #e3efff;
+    }
+
+    .job-company {
+      font-weight: 500;
+      color: #6d9fd0;
+      font-size: 0.85rem;
+    }
+
+    .job-date {
+      font-size: 0.7rem;
+      color: #728ea8;
+      font-weight: 400;
+      background: #1a2532;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+    }
+
+    .job-desc {
+      font-size: 0.84rem;
+      color: #cbddee;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .job-desc ul {
+      margin-left: 1.2rem;
+      margin-top: 0.3rem;
+    }
+
+    .job-desc li {
+      margin-bottom: 0.3rem;
+    }
+
+    hr {
+      margin: 1rem 0;
+      border: 0;
+      height: 1px;
+      background: #1f2e3c;
+    }
+
+    .compact-p {
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: #bccfe3;
+    }
+
+    /* responsive */
+    @media (max-width: 750px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        border-right: 0;
+        border-bottom: 1px solid #1a232e;
+      }
+      .header {
+        padding: 1.5rem;
+      }
+      .name {
+        font-size: 2rem;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .resume {
+        box-shadow: none;
+        background: white;
+        color: black;
+      }
+      .sidebar, .right-col, .header {
+        background: white;
+        border-color: #ccc;
+      }
+      .skill-tag, .job-date {
+        background: #ececec;
+        color: black;
+        border-color: #ccc;
+      }
+    }
+
+    /* custom glow for section titles */
+    .glow-text {
+      color: #6ea5d4;
+    }
+
+    .footer-note {
+      background: #0a1017;
+      text-align: center;
+      font-size: 0.7rem;
+      padding: 1rem;
+      border-top: 1px solid #1a2532;
+      color: #6082a6;
+      letter-spacing: 0.3px;
+    }
+  </style>
+</head>
+<body>
+<div class="resume">
+  <div class="header">
+    <div class="name">Priyojit Deb</div>
+    <div class="title">Cloud Specialist | Infrastructure Automation & SRE</div>
+    <div class="contact-bar">
+      <span>📧 mailmepriyoijtdb@gmail.com</span>
+      <span>📞 +91 6901696324</span>
+      <span>📍 Guwahati, Assam</span>
+      <a href="#" target="_blank">🔗 linkedin.com/in/priyoijtd-db</a>
+    </div>
+  </div>
+
+  <div class="main-grid">
+    <!-- LEFT COLUMN: education, skills, projects -->
+    <div class="sidebar">
+      <!-- Education -->
+      <div class="section">
+        <div class="section-title">📖 EDUCATION</div>
+        <div class="education-item">
+          <div class="edu-degree">B.Tech, Mechanical Engineering</div>
+          <div class="edu-school">Bharath Institute of Higher Education & Research, Chennai</div>
+          <div class="edu-date">July 2014 – May 2018</div>
+          <div class="edu-gpa">GPA: 7.74 / 10</div>
+        </div>
+        <div class="education-item">
+          <div class="edu-degree">AISSCE (CBSE) – Senior Secondary</div>
+          <div class="edu-school">Kendriya Vidyalaya IIT Guwahati, Assam</div>
+          <div class="edu-date">June 2011 – May 2013</div>
+          <div class="edu-gpa">Percentage: 50%</div>
+        </div>
+        <div class="education-item">
+          <div class="edu-degree">HSLC (SEBA) – Matriculation</div>
+          <div class="edu-school">St. Vivekananda English Academy, Guwahati</div>
+          <div class="edu-date">Completed May 2011</div>
+          <div class="edu-gpa">Percentage: 69%</div>
+        </div>
+      </div>
+
+      <!-- SKILLS section - enriched -->
+      <div class="section">
+        <div class="section-title">⚙️ CORE TOOLS</div>
+        <div class="skill-block">
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">VMware vSphere</span>
+          <span class="skill-tag">Active Directory</span>
+          <span class="skill-tag">Dynatrace</span>
+          <span class="skill-tag">AWS (EC2/S3/IAM)</span>
+          <span class="skill-tag">IIS Manager</span>
+          <span class="skill-tag">PagerDuty</span>
+          <span class="skill-tag">SQL Server</span>
+          <span class="skill-tag">Host Monitor</span>
+          <span class="skill-tag">Windows Server OS</span>
+          <span class="skill-tag">Networking</span>
+          <span class="skill-tag">MMC / PKI</span>
+        </div>
+      </div>
+
+      <!-- ACADEMIC PROJECTS refined -->
+      <div class="section">
+        <div class="section-title">🔬 PROJECTS</div>
+        <div class="project-item">
+          <div class="project-title">⚡ Hybrid Electric Vehicle (HEV)</div>
+          <div class="project-desc">Built a gasoline-battery hybrid prototype. Integrated electric motor for extra power, larger battery to reduce engine idling, improving fuel economy by ~18%.</div>
+        </div>
+        <div class="project-item">
+          <div class="project-title">🔋 Electric Motor & Load Optimization</div>
+          <div class="project-desc">Engineered power distribution for auxiliary loads (HVAC, lighting) using high-capacity battery packs, reducing idle fuel consumption and emissions.</div>
+        </div>
+      </div>
+
+      <!-- additional competencies -->
+      <div class="section">
+        <div class="section-title">🧠 CORE COMPETENCIES</div>
+        <div class="compact-p">
+          ✔ Cloud Infrastructure & IaC (Terraform)<br>
+          ✔ Incident & Escalation Management (PagerDuty)<br>
+          ✔ Customer Advocacy & Lifecycle Ownership<br>
+          ✔ Performance Monitoring (Dynatrace/Host Monitor)<br>
+          ✔ Windows Ecosystem & Active Directory<br>
+          ✔ Cross-team Collaboration & Documentation
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: Work Experience -->
+    <div class="right-col">
+      <div class="section">
+        <div class="section-title">💼 WORK EXPERIENCE</div>
+
+        <!-- Cloud Specialist 2 -->
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Cloud Specialist 2</div>
+            <div class="job-date">Sept 2021 – May 2023</div>
+          </div>
+          <div class="job-company">Hyland Software LLP – Kolkata, India</div>
+          <div class="job-desc">
+            Collaborate directly with enterprise customers to implement hosted Hyland solutions, aligning configuration with resource needs. Troubleshoot critical issues across Networking, Windows OS, SQL DB, and Active Directory. Advocate customer feature requests, maintain full ownership of installation lifecycle, and ensure transparent progress communication. Deliver internal documentation and demonstrate deep expertise across Hyland product suite, thriving in a high-velocity cloud environment.
+          </div>
+        </div>
+
+        <!-- Cloud Specialist 1 -->
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Cloud Specialist 1</div>
+            <div class="job-date">Apr 2021 – Aug 2021</div>
+          </div>
+          <div class="job-company">Hyland Software LLP – Bangalore, India</div>
+          <div class="job-desc">
+            <ul>
+              <li>On-call rotation with PagerDuty escalation policies, ensuring 99.9% availability for cloud customer environments.</li>
+              <li>Proactive monitoring using Dynatrace & Host Monitor; reduced detection time for anomalies by 25%.</li>
+              <li>Automated server provisioning using Terraform + vSphere, slashing deployment time by 40%.</li>
+              <li>Executed monthly patching while guaranteeing uptime SLAs across hosted workloads.</li>
+              <li>Managed AD permissions, renewed certificates via MMC, and configured DNS records for new deployments.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Technical Support -->
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Technical Support Engineer</div>
+            <div class="job-date">Mar 2020 – July 2020</div>
+          </div>
+          <div class="job-company">Telligent Support LLP – Assam, India</div>
+          <div class="job-desc">
+            Provided remote technical assistance and in-depth troubleshooting for gaming platform users. Diagnosed network, performance, and configuration issues, leading to improved customer satisfaction and fast ticket resolution.
+          </div>
+        </div>
+
+        <!-- Service Supervisor -->
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Service Supervisor</div>
+            <div class="job-date">Jan 2019 – Feb 2020</div>
+          </div>
+          <div class="job-company">Johnson Controls-Hitachi Air Conditioning Pvt. Ltd – Assam, India</div>
+          <div class="job-desc">
+            Managed customer complaints for AC units, supervised field technicians during troubleshooting and repair. Cleared system-generated tickets efficiently, improved first-time fix metrics, and coordinated service logistics across the region.
+          </div>
+        </div>
+      </div>
+
+      <!-- TOOLS & PLATFORMS (enhanced) -->
+      <div class="section">
+        <div class="section-title">🛠️ TECH STACK HIGHLIGHTS</div>
+        <div class="badge-list" style="margin-top: 0.4rem;">
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">VMware vSphere</span>
+          <span class="skill-tag">Active Directory</span>
+          <span class="skill-tag">Dynatrace</span>
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">PagerDuty</span>
+          <span class="skill-tag">IIS Manager</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Host Monitor</span>
+          <span class="skill-tag">Windows Server</span>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="section">
+        <div class="section-title">🤝 SOFT SKILLS</div>
+        <div class="compact-p">
+          ✅ Critical thinking & problem-solving · High-pressure service ownership · Customer-centric communication · Proactive documentation · Agile & cross-functional collaboration
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-note">
+    Priyojit Deb — Cloud Infrastructure | Automation | Always learning
+  </div>
+</div>
+</body>
+</html>
